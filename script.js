@@ -124,6 +124,9 @@ function createUser(inname,inmsg,strval){
 
     document.getElementById("customer_review").innerHTML='';
     read_Data();
+    var txt = "Thankyou for your Review.";
+    document.getElementById("rate_message").style.color = "green";
+    document.getElementById("rate_message").innerHTML = txt;
     
 }
 
@@ -152,7 +155,9 @@ function read_Data(){
 		<br>
 		
 		`;
-	});
+    });
+    
+    
 }
 
 
