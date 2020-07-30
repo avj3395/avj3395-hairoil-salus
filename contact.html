@@ -54,25 +54,25 @@
               
             </div>
             <div class="bg-secondary p-3" style="border-radius: 15px;">
-              <form id="contact-form" method="POST" action="mailto:salushaircaresolution@gmail.com">
+              <form id="form" method="POST" action="">
                 <label style="color: white;" >Name</label>
-                 <input type="text" class="form-control" name="name" placeholder="Your name" required>
+                 <input type="text" class="form-control" id="name_c" placeholder="Your name" required>
                  
 
                  <label style="color: white;">Email</label>
-                 <input type="email" class="form-control" name="email" placeholder="Your email" required>
+                 <input type="email" class="form-control" id="email_c" placeholder="Your email" required>
 
                  <br>
-                 <textarea name="message" class="form-control"  cols="30" rows="6" placeholder="Message" required></textarea>
+                 <textarea id="message_c" class="form-control"  cols="30" rows="6" placeholder="Message" required></textarea>
                  <br>
-                 <input style="background-color:#4CAF50; color: white;" type="submit" class="form-control" value="Sent Message">
+                 <button style="background-color:#4CAF50; color: white;" type="submit" class="form-control" >Send Message</button>
                  <br>
 
               
 
               </form>
             </div>
-            <p >*Note: If you want to contact as, you must fill Subjet box in email</p>
+            <p id="contact_ack"></p>
 
           </div>
           
@@ -179,8 +179,33 @@ $(document).ready(function(){
 })
 </script>
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
 
-    <script src="script.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCiW6Z-ZoIKrLnKk5Fei_AZjIpDpnb5Am4",
+    authDomain: "salus-hair-care-solution.firebaseapp.com",
+    databaseURL: "https://salus-hair-care-solution.firebaseio.com",
+    projectId: "salus-hair-care-solution",
+    storageBucket: "salus-hair-care-solution.appspot.com",
+    messagingSenderId: "657316963729",
+    appId: "1:657316963729:web:9ef46877c7aefa34652630",
+    measurementId: "G-9DDX9GWW2C"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+
+    <script src="contactscript.js"></script>
 
     <script type="text/javascript">
       (function () {
