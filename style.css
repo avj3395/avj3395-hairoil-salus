@@ -202,3 +202,17 @@
     color: gray;
     
   }
+
+  .adminlink{
+    color: white;
+    text-decoration: none;
+
+  }
+
+  .adminlink:hover{
+    color: lightgrey;
+    text-decoration: none;
+  }
+
+
+  

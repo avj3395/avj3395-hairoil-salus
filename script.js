@@ -124,6 +124,9 @@ function createUser(inname,inmsg,strval){
 
     document.getElementById("customer_review").innerHTML='';
     read_Data();
+    document.getElementById("cardsection").innerHTML='';
+    document.getElementById("cardsection2").innerHTML='';
+    read_contact();
     var txt = "Thankyou for your Review.";
     document.getElementById("rate_message").style.color = "green";
     document.getElementById("rate_message").innerHTML = txt;
@@ -160,6 +163,49 @@ function read_Data(){
     
 }
 
+function read_contact(){
+    var data = firebase.database().ref("contact/");
+    data.on("child_added",function(data){
+
+        var userdata = data.val();
+        console.log(userdata);
+        document.getElementById("cardsection").innerHTML+=`
+        <div class="card mb-3">
+        <div class="card-body">
+        <h5  class="card-title">${userdata.user_name}</h5>
+        <p class="card-text">${userdata.user_email}</p>
+        <p class="card-text">${userdata.user_msg}</p>
+        </div>
+        </div>
+
+        `;
+    });
+
+    var data1 = firebase.database().ref("rating/");
+    data1.on("child_added",function(data1){
+
+        var userdata = data1.val();
+        console.log(userdata);
+        document.getElementById("cardsection2").innerHTML+=`
+        <div class="card mb-3">
+        <div class="card-body">
+        <h5  class="card-title">${userdata.user_name}</h5>
+        <p class="card-text">${userdata.user_msg}</p>
+        <button type="submit" style"color:white" class="btn btn-danger" onclick="delete_data(${userdata.user_id})"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+        </div>
+        </div>
+
+        `;
+    });
+}
+
+function delete_data(userid){
+
+    rootref.child(userid).remove();
+    document.getElementById("cardsection2").innerHTML='';
+    read_contact();
+    
+}
 
 
 
